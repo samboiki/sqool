@@ -247,28 +247,13 @@
                                                         <div class="col-md-12 col-sm-12">
                                                         <div class="row">
                                                             <div class="col-md-6 col-sm-6">
-                                                                <div class="stats-info"><strong>Subject</strong> </div>
-                                                                    <select class="form-control" id="select-required" name="subject" data-parsley-id="8187">
-                                                                            <option value="">Please choose</option>
-                                                                            <?php if(isset($sub)) : foreach($sub as $row) :  ?>
-                                                                            <option value="<?php echo $row->id?>,<?=$row->name?>"><?=$row->name?></option>
-
-                                                                            <?php  endforeach;?>
-                                                                            <?php else : ?><h6>No records </h6>
-                                                                            <?php endif; ?>
-                                                                    </select><ul class="parsley-errors-list" id="parsley-id-8187"></ul>
+                                                                <div class="stats-info"><strong>Subject</strong> </div> <input class="form-control input-xs" type="text" placeholder=".input-sm">
+                                                                 
                                                             </div>
+                                                        </div>
+                                                         <div class="row">
                                                             <div class="col-md-6 col-sm-6">
-                                                                <div class="stats-info"><strong>Teacher</strong> </div>
-                                                                    <select class="form-control" id="select-required" name="teacher" data-parsley-required="true" data-parsley-id="8187">
-                                                                            <option value="">Please choose</option>
-                                                                            <?php if(isset($tchr)) : foreach($tchr as $row) :  ?>
-                                                                            <option value="<?php echo $row->id?>"><?=$row->firstname?> <?=$row->lastname?></option>
-
-                                                                            <?php  endforeach;?>
-                                                                            <?php else : ?><h6>No records </h6>
-                                                                            <?php endif; ?>
-                                                                    </select><ul class="parsley-errors-list" id="parsley-id-8187"></ul>
+                                                                <div class="stats-info"><strong>Teacher</strong> </div> <input class="form-control input-xs" type="text" placeholder=".input-sm">
                                                             </div>
                                                         </div>
                                                     </div> 
