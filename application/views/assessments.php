@@ -133,7 +133,7 @@
 			                        <img src="../assets/img/user-10.jpg" alt="">
 			                    </div>
 			                    <div class="widget-blog-author-info text-inverse" style="margin-top: -9px;">
-                                                <strong><a class="text-white p-l-5 ">classRank: </a><a class="count f-s-11  text-inverse">24</a>/<a class="text-muted f-s-11">31 </a><i class="fa fa-arrow-circle-up text-muted"></i>
+                                                <strong><a class="text-white p-l-5 ">classRank: </a><a class="count f-s-11  text-inverse">24</a>/<a class="text-muted f-s-11">31 </a><i class="fa fa-dot-circle-o text-muted"></i>
                                                         <a class="text-white p-l-25">gradeRank: </a><a class="count f-s-11 f-w-700 text-inverse">84</a>/<a class="text-muted f-s-11">110 </a> <i class="fa fa-arrow-circle-down text-muted"></i>
                                                         <a class="text-white p-l-25">schoolRank: </a><a class="count f-s-11  text-inverse">230</a>/<a class="text-muted f-s-11">622 </a> <i class="fa fa-arrow-circle-up text-muted"></i></strong>
                                          
@@ -193,10 +193,21 @@
                                                             <th>Subject</th>
                                                             <th>Mark out of</th>
                                                             <th>Mark</th>
-                                                            <th>Average</th>
+                                                            <th>Percent</th>
                                                             <th>Weight</th>
                                                         </tr>
                                                     </thead>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th>Class</th>
+                                                            <th>Subject</th>
+                                                            <th>Mark out of</th>
+                                                            <th>Mark</th>
+                                                            <th>Average</th>
+                                                            <th>Weight</th>
+                                                        </tr>
+                                                    </tfoot>
                                                 </table>
 
                                             </div>
