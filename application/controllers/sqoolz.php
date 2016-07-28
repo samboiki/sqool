@@ -490,9 +490,12 @@ class Sqoolz extends CI_Controller {
          $mark = $vals->mark;
          $percentage = $vals->percentage;
          $average = $vals->AVG;
+         $wht = $vals->markweight;
+         $assname = $vals->assname;
+         
          
          $values = array(
-          $id,$class,$subject,$marktotal,$mark,$percentage,$average
+          $id,$class,$subject,$marktotal,$mark,$percentage,$average,$wht,$assname
          );
          
          $userspecs[] = $values;

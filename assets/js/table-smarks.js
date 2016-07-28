@@ -10,7 +10,8 @@ var handleDataTableScroller = function() {
             scrollY:        300,
             scrollCollapse: true,
             scroller:       true,
-            responsive: true,
+            //responsive: true,
+            aoColumns: [ ,,,{ "bVisible": false},,,,{ "bVisible": false},{ "bVisible": false}],
             aoColumnDefs :[
                             {"className": "dt-center", "targets": "_all"},
                             {
@@ -25,16 +26,22 @@ var handleDataTableScroller = function() {
                                                                         }
                             },
                             {
+                              "aTargets": [ 1 ],
+                              "mRender": function ( url, type, row )  {
+                                                                            return '<strong><a class="text-inverse f-s-12">'+ row[8]+ '</a></strong><a class="text-muted f-s-11">   #'+ url +'</a>';
+                                                                      }
+                            },
+                            {
                               "aTargets": [ 4 ],
                               "mRender": function ( url, type, row )  {
                                                                             return '<strong><a class="text-inverse">' + url +'</a></strong><a class="text-muted f-s-11"> / '+ row[3]+'</a>';
-                                                                        }
+                                                                       }
                             },
                             {
                               "aTargets": [ 5 ],
                               "mRender": function ( url, type, row )  {
                                                                             if(url > 80){
-                                                                               return  '<span class=""><a href="user/'+ url +'" class="text-success" style="text-decoration:none;"><strong>' + url + ' %</strong></a></span>'; 
+                                                                               return  '<a href="user/'+ url +'" class="text-success" style="text-decoration:none;"><strong>' + url + ' % </strong></a><a class="text-muted f-s-11"> up by / 20 </a>'; 
                                                                             }
                                                                             return  '<span class=""><a href="user/'+ url +'" class="text-inverse" style="text-decoration:none;"><strong>' + url + ' %</strong></a></span>';
                                                                         }
@@ -42,7 +49,7 @@ var handleDataTableScroller = function() {
                             {
                               "aTargets": [ 6 ],
                               "mRender": function ( url, type, row )  {
-                                                                            return '<strong><a class="text-inverse">' + url +'</a></strong><a class="text-muted f-s-11"></a>';
+                                                                            return '<strong><a class="text-inverse">' + url +'</a></strong><a class="text-muted f-s-11"> / '+ row[7]+'</a>';
                                                                         }
                             }
                            ],
@@ -58,13 +65,12 @@ var handleDataTableScroller = function() {
             
             /* Modify the footer row to match what we want $('th:eq(5)', nRow).html(iPageMarket);*/
             var nCells = nRow.getElementsByTagName('th');
-            nCells[0].innerHTML = 'Total';
+            nCells[0].innerHTML = '';
             nCells[1].innerHTML = '';
             nCells[2].innerHTML = '';
-            nCells[3].innerHTML = '';
             var numb2 = (parseFloat(mark * 100)/100)/iEnd;
             var tot = roundToTwo(numb2);
-            nCells[4].innerHTML =  tot  + '<a class="text-muted f-s-10"> average</a>';
+            nCells[3].innerHTML =  tot  + '<a class="text-muted f-s-10"> average</a>';
             //'<i class="fa fa-dot-circle-o">  </i> ' + parseInt(mark * 100)/100 +
             var perc = 0
             var wei = 0;
@@ -74,11 +80,12 @@ var handleDataTableScroller = function() {
             
             var numb3 = (parseFloat(perc * 100)/100)/iEnd;
             var tot1 = roundToTwo(numb3);
-            nCells[5].innerHTML = ''+ tot1 +'<a class="text-muted f-s-10">% average</a>';
+            nCells[4].innerHTML = ''+ tot1 +'<a class="text-muted f-s-10">% average</a>';
             
             var numb4 = (parseFloat(wei * 100)/100)/iEnd;
             var tot4 = roundToTwo(numb4);
-            nCells[6].innerHTML = '<a class="text-inverse f-s-14">'+ parseInt(wei * 100)/100 +'</a><a class="text-muted f-s-10"> total</a>';
+            nCells[5].innerHTML = '<a class="text-inverse f-s-14">'+ parseInt(wei * 100)/100 +'</a><a class="text-muted f-s-10"> total</a>';
+            
    
         }
         

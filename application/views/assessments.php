@@ -153,7 +153,6 @@
                                                 <li><a href="<?php echo base_url()?>user/<?php echo $idd;?>"><strong>Overview</strong></a></li>
                                                 <li class="active"><a href="<?php echo base_url()?>assessments/<?php echo $idd;?>"><strong>Assessments</strong></a></li>
                                                 <li><a href="#nav-pills-tab-3" data-toggle="tab"><strong>Demographics</strong></a></li>
-                                                <li><a href="#nav-pills-tab-4" data-toggle="tab"><strong>Album</strong></a></li>
                                                 <li><a href="#nav-pills-tab-5" data-toggle="tab"><strong>Discipline</strong></a></li>
                                                 <li><a href="#nav-pills-tab-6" data-toggle="tab"><strong>Attendance</strong></a></li>
                                                 <li><a href="#nav-pills-tab-7" data-toggle="tab"><strong>Settings</strong></a></li>
@@ -195,6 +194,8 @@
                                                             <th>Mark</th>
                                                             <th>Percent</th>
                                                             <th>Weight</th>
+                                                            <th>oWeight</th>
+                                                            <th>Ass</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
@@ -206,6 +207,8 @@
                                                             <th>Mark</th>
                                                             <th>Average</th>
                                                             <th>Weight</th>
+                                                            <th>oWeight</th>
+                                                            <th>Ass</th>
                                                         </tr>
                                                     </tfoot>
                                                 </table>
