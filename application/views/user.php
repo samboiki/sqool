@@ -18,7 +18,7 @@
 	<link href="<?php echo base_url();?>/assets/css/animate.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url();?>/assets/css/style.css" rel="stylesheet" />
 	<link href="<?php echo base_url();?>/assets/css/style-responsive.min.css" rel="stylesheet" />
-	<link href="<?php echo base_url();?>/assets/css/theme/default.css" rel="stylesheet" id="theme" />
+	<link href="<?php echo base_url();?>/assets/css/theme/default.css" rel="stylesheet" />
 	<!-- ================== END BASE CSS STYLE ================== -->
 	
         <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
@@ -57,14 +57,7 @@
 				
 				<!-- begin header navigation right -->
 				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<form class="navbar-form full-width">
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Enter keyword" />
-								<button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
-							</div>
-						</form>
-					</li>
+					
 					<li class="dropdown navbar-user">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 							<img src="<?php echo base_url();?>/assets/img/user-13.jpg" alt="" /> 
@@ -119,25 +112,22 @@
                         <div class="col-md-12">
 			<div class="widget widget-blog" style="background-color: rgba(0,0,0,0.3);" >
                             <?php if(isset($data)) : foreach($data as $row) :  ?>
-                            <?php $idd = $row->id;?>
+                            <?php $idd = $row->pid;?>
 			                <div class="widget-blog-cover" >
                                             <ol class="breadcrumb pull-left text-white f-w-700 f-s-12 m-l-100">
-                                                <li><?php echo $row->firstname?> <?php echo $row->lastname?>, 8a, <?php echo $row->gender?>,<?php $d = $row->dob; $date = date('Y-m-d'); $dd = $date - $d; echo $dd; ?> years old</li>
+                                                <li><?php echo $row->sfirstname?> <?php echo $row->slastname?>, 8a, <?php echo $row->sgender?>,<?php $d = $row->sdob; $date = date('Y-m-d'); $dd = $date - $d; echo $dd; ?> years old</li>
                                              </ol>    
                                         </div>
-                            <?php  endforeach;?>
-                            <?php else : ?><h6>No records </h6>
-                            <?php endif; ?>
+                            
 			                <div class="widget-blog-author" >
 			                    <div class="widget-blog-author-image">
 			                        <img src="../assets/img/user-10.jpg" alt="">
 			                    </div>
-			                    <div class="widget-blog-author-info text-inverse" style="margin-top: -9px;">
-                                                <strong><a class="text-white p-l-5 ">classRank: </a><a class="count f-s-11  text-inverse">24</a>/<a class="text-muted f-s-11">31 </a><i class="fa fa-arrow-circle-up text-muted"></i>
-                                                        <a class="text-white p-l-25">gradeRank: </a><a class="count f-s-11 f-w-700 text-inverse">84</a>/<a class="text-muted f-s-11">110 </a> <i class="fa fa-arrow-circle-down text-muted"></i>
-                                                        <a class="text-white p-l-25">schoolRank: </a><a class="count f-s-11  text-inverse">230</a>/<a class="text-muted f-s-11">622 </a> <i class="fa fa-arrow-circle-up text-muted"></i></strong>
-                                         
-			                    </div>
+			                    <div class="widget-blog-author-info text-inverse" style="margin-top: -1px; margin-left: 7px;">
+                                                <a href="<?php echo base_url()?>user/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Home" class="shoshialsa btn btn-circle btn-icon m-t-3 "><i class="fa fa-home  fa-spin  "></i></a>
+                                                <a href="<?php echo base_url()?>assessments/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Assessments" class="shoshials btn btn-circle btn-icon  m-l-25 m-t-3" ><i class="fa fa-graduation-cap"></i></a>
+                                                <a href="<?php echo base_url()?>disciplines/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Discipline" class="shoshials btn btn-circle btn-icon m-t-3 m-l-25"><i class="fa fa-legal"></i></a>
+                                             </div>
                                             
 			                </div>
                             
@@ -149,18 +139,10 @@
                             
                         </div>
                         </div>
-                        <ul class="nav nav-pills f-s-12">
-                                                <li class="active"><a href="#nav-pills-tab-1" data-toggle="tab"><strong>Overview</strong></a></li>
-                                                <li><a href="<?php echo base_url()?>assessments/<?php echo $idd;?>"><strong>Assessments</strong></a></li>
-                                                <li><a href="#nav-pills-tab-3" data-toggle="tab"><strong>Demographics</strong></a></li>
-                                                <li><a href="#nav-pills-tab-4" data-toggle="tab"><strong>Album</strong></a></li>
-                                                <li><a href="#nav-pills-tab-5" data-toggle="tab"><strong>Discipline</strong></a></li>
-                                                <li><a href="#nav-pills-tab-6" data-toggle="tab"><strong>Attendance</strong></a></li>
-                                                <li><a href="#nav-pills-tab-7" data-toggle="tab"><strong>Settings</strong></a></li>
-                        </ul>
+                        <legend></legend>
                     <div class="row">
 		    <!-- begin begin col-8 -->
-			<div class="col-md-9">
+			<div class="col-md-8">
                             
                             <!-- begin col-8 bar chart-->
                             <div class="">
@@ -173,55 +155,120 @@
                                             <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                                             <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                                         </div>
-                                        <h4 class="panel-title">Subject overall performance</h4>
+                                          <strong><a class="text-white p-l-5 ">classRank: </a><a class="count f-s-11  text-white">24</a>/<a class="text-muted f-s-11">31 </a><i class="fa fa-arrow-circle-up text-muted"></i>
+                                                        <a class="text-white p-l-25">gradeRank: </a><a class="count f-s-11 f-w-700 text-white">84</a>/<a class="text-muted f-s-11">110 </a> <i class="fa fa-arrow-circle-down text-muted"></i>
+                                                        <a class="text-white p-l-25">schoolRank: </a><a class="count f-s-11  text-white">230</a>/<a class="text-muted f-s-11">622 </a> <i class="fa fa-arrow-circle-up text-muted"></i></strong>
+                                         
 			            </div>
-			            <div class="panel-body">
-			                <div id="nv-multi-bar-chart" class="height-md"></div>
+			            <div class="panel-body panel-inverse">
+			                <div id="nv-multi-bar-chart" class="height-sm"></div>
 			            </div>
 			        </div>
 			    </div>
 			    <!-- end col-8 -->
                         </div>
                     <!-- end col-8  -->
-                    
-                    <!-- begin begin col-8 -->
-			<div class="col-md-3">
-                          
-                            
-                            <div>
-                                <div class="panel panel-inverse" data-sortable-id="flot-chart-3" style="background-color: rgba(0,0,0,0.3);">
-
-                                    <div class="panel-body panel-inverse inverse" >
-                                        <p>
-                                            <div class="btn-group pull-right" data-toggle="buttons">
-                                            
-                                            <label class="btn btn-success btn-xs active">
-                                                <a onclick="po()" class="text-white" style="text-decoration: none;" ><input type="radio" name="options" id="option1" checked="">polar chart</a>
-                                            </label>
-                                             <label class="btn btn-success btn-xs">
-                                                <a onclick="m()" class="text-white" style="text-decoration: none;"><input type="radio" name="options" id="option2">pie chart</a>
-                                            </label>   
-                                            <label class="btn btn-success btn-xs">
-                                                <a onclick="doughnut()" class="text-white" style="text-decoration: none;"><input type="radio" name="options" id="option2">doughnut chart</a>
-                                            </label>
-                                            </div>
-                                            A radar chart is a way of showing multiple data points and the variation between them.
-                                            change chart type by clicking icon. 
-                                            
-                                        </p>
-                                        
-                                        <div id="pieChartContent">
-                                            <canvas id="myChart" data-render="chart-js"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    <!-- end col-8  -->
+                       <div class="col-md-4">
+			        <div class="panel-group" id="accordion">
+						<div class="panel panel-inverse overflow-hidden">
+							<div class="panel-heading">
+                                                            <h3 class="panel-title">
+									<a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+									    <i class="fa fa-plus-circle pull-right"></i> 
+                                                                            Basic Profile
+									</a>
+								</h3>   
+							</div>
+							<div id="collapseOne" class="panel-collapse collapse in">
+								<div class="panel-body">
+                                                                      <div class="row f-s-12">
+                                                                        <label class="col-lg-6 control-label"><strong>First name:</strong></label>
+                                                                        <label class="col-lg-6 control-label"><?php echo $row->sfirstname?> </label>
+                                                                      </div>
+                                                                       <div class="row f-s-12">
+                                                                        <label class="col-lg-6 control-label"><strong>Middle name:</strong></label>
+                                                                        <label class="col-lg-6 control-label"><?php echo $row->smiddlename?> </label>
+                                                                      </div>
+                                                                      <div class="row f-s-12">
+                                                                       <label class="col-lg-6 control-label"><strong>Last name:</strong></label>
+                                                                       <label class="col-lg-6 control-label"><?php echo $row->slastname?> </label>
+                                                                      </div>
+                                                                      <div class="row f-s-12">
+                                                                        <label class="col-lg-6 control-label"><strong>Date Of Birth:</strong></label>
+                                                                        <label class="col-lg-6 control-label"><?php echo $row->sdob?> </label>
+                                                                       </div>
+                                                                       <div class="row f-s-12">
+                                                                        <label class="col-lg-6 control-label"><strong>Gender:</strong></label>
+                                                                        <label class="col-lg-6 control-label"><?php echo $row->sgender?> </label>
+                                                                       </div>
+                                                                        <div class="row f-s-12">
+                                                                        <label class="col-lg-6 control-label"><strong>Home Language:</strong></label>
+                                                                        <label class="col-lg-6 control-label"><?php echo $row->slanguage?> </label>
+                                                                       </div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-inverse overflow-hidden">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+									    <i class="fa fa-plus-circle pull-right"></i> 
+										Parent Details
+									</a>
+								</h3>
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse">
+								<div class="panel-body">
+                                                                    <strong>Father:</strong> <?php echo $row->ftitle?> <?php echo $row->ffirstname?> <?php echo $row->fmiddlename?> <?php echo $row->flastname?> <br>
+                                                                    Contact: <i class="fa fa-mobile-phone"></i> : <?php echo $row->fcell?> <i class="fa fa-phone-square"></i> : <?php echo $row->fworktel?> <i class="fa fa-envelope-square"></i>:<?php echo $row->femail?> 
+                                                                    <legend></legend> 
+                                                                    <strong>Mother:</strong> <?php echo $row->mtitle?> <?php echo $row->mfirstname?> <?php echo $row->mmiddlename?> <?php echo $row->mlastname?> <br>
+                                                                    Contact: <i class="fa fa-mobile-phone"></i> : <?php echo $row->mcell?> <i class="fa fa-phone-square"></i> : <?php echo $row->mworktel?> <i class="fa fa-envelope-square"></i>:<?php echo $row->memail?> 
+                                                                    <legend></legend>
+                                                                    <strong>Guardian:</strong> <?php echo $row->gtitle?> <?php echo $row->gfirstname?> <?php echo $row->gmiddlename?> <?php echo $row->glastname?> <br>
+                                                                    Contact: <i class="fa fa-mobile-phone"></i> : <?php echo $row->gcell?> <i class="fa fa-phone-square"></i> : <?php echo $row->gworktel?> <i class="fa fa-envelope-square"></i>:<?php echo $row->gemail?> 
+                                                                    <legend></legend>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-inverse overflow-hidden">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+									    <i class="fa fa-plus-circle pull-right"></i> 
+										Geographic Information
+									</a>
+								</h3>
+							</div>
+							<div id="collapseThree" class="panel-collapse collapse">
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								</div>
+							</div>
+						</div>
+					</div>
+			    </div>
+			    <!-- end col-6 -->
                     </div>
+                        <?php  endforeach;?>
+                        <?php else : ?><h6>No records </h6> 
+                        <?php endif; ?>
 		<!-- end #content -->
-		
+		<!-- begin #footer -->
+		<div id="footer" class="footer">
+                    <a class="shoshial btn btn-default btn-icon btn-circle"><i class="fa fa-twitter"></i></a>&nbsp;
+                   <a class="shoshial btn btn-default btn-icon btn-circle"><i class="fa fa-facebook-f"></i></a>&nbsp;
+                   <a class="shoshial btn btn-default btn-icon btn-circle"><i class="fa fa-google-plus"></i></a>&nbsp;
+                   <a class="shoshial btn btn-default btn-icon btn-circle"><i class="fa fa-linkedin"></i></a>&nbsp;
+                    <a class="shoshial btn btn-default btn-icon btn-circle"><i class="fa fa-youtube-play"></i></a>&nbsp;
+                    <a class="shoshial btn btn-default btn-icon btn-circle"><i class="fa fa-instagram"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="shoshialt f-s-13 f-w-600 " ><strong>sqoolz blog</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="shoshialt f-s-13 f-w-600 " ><strong>about sqoolz</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="shoshialt f-s-13 f-w-600 " ><strong>privacy policy</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="shoshialt f-s-13 f-w-600 " ><strong>terms & conditions</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p class="shoshialt f-s-13 f-w-600  pull-right">&copy; 2016 sqoolz island, inc.</p>
+		</div>
+		<!-- end #footer -->
   
 		<!-- begin scroll to top btn -->
 		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>

@@ -368,7 +368,7 @@
 
                                                                             <div class="panel-body panel-inverse inverse" >
                                                                                 <p>
-                                                                                    <div class="btn-group pull-right" data-toggle="buttons">
+                                                                                    <div class=" pull-right" data-toggle="buttons">
 
                                                                                     <label class="btn btn-success btn-xs active">
                                                                                         <a onclick="ra()" class="text-white" style="text-decoration: none;" ><input type="radio" name="options" id="option1" checked="">radar chart</a>
@@ -390,6 +390,7 @@
                                                                                     <canvas id="myChart" data-render="chart-js"></canvas>
                                                                                 </div>
                                                                             </div>
+                                                                            
                                                                         </div>
                                                                     </div>   
                                                                     <!-- begin panel

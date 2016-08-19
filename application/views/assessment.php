@@ -143,7 +143,7 @@
 								nec eleifend orci eros id lectus.
 							</p>
                                                     <div class="row">
-                                                            <div class="col-md-8">
+                                                            <div class="col-md-9">
                                                                 <!-- begin col-8 table-->
                                                              
                                                                         <!-- begin panel -->
@@ -362,7 +362,7 @@
 							</div>
                                                         <!-- end col-8  -->
                                                               <!-- begin begin col-4 -->
-                                                                <div class="col-md-4">                            
+                                                                <div class="col-md-3">                            
                                                                     <div>
                                                                         <div class="panel panel-inverse" data-sortable-id="flot-chart-3" style="background-color: rgba(0,0,0,0.4);">
 

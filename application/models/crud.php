@@ -160,7 +160,7 @@ class crud extends CI_Model {
         return $userdata;
     }
     function add_grades($data){
-      $this->db->insert('gradeview',$data);
+      $this->db->insert('grade',$data);
     }
     function edit_grades($id, $data){
         $this->db->where('id',$id);
@@ -170,6 +170,21 @@ class crud extends CI_Model {
         $this->db->where('id',$id);
         $this->db->delete('gradeview');
     }  
+    function deld($id){
+        $this->db->where('id',$id);
+         $query = $this->db->get('discipline');
+         if ($query){
+            $roles = $query->row();
+            $role = array(
+           'role' => $roles->student_id,
+               );
+            $this->db->where('id',$id);
+            $this->db->delete('discipline');
+                return $role;
+            } else {
+                return false;
+            }
+    }
     //----------------assesment------------------//
     function  get_assessment(){
         $sql = 'SELECT * FROM assesment';
@@ -221,6 +236,19 @@ class crud extends CI_Model {
         $query = $this->db->get('marks');
         return $query->result();
     }
+    function get_studentd($ids){
+        $this->db->where('pid',$ids);
+        $query = $this->db->get('dviews');
+        if ($query->num_rows()>0){
+           return $query->result(); 
+        }
+        else 
+        {
+            $this->db->where('id',100);
+            $query = $query = $this->db->get('dviews');
+            return $query->result(); 
+        }
+    }
     function  get_usercontacts($userid){
         $this->db->where('userid',$userid);
         $query = $this->db->get('contact');
@@ -234,8 +262,8 @@ class crud extends CI_Model {
     }
     
     function  get_userbyid($id){
-        $this->db->where('id',$id);
-        $query = $this->db->get('person');
+        $this->db->where('pid',$id);
+        $query = $this->db->get('persons');
         return $query->result();
     }
     

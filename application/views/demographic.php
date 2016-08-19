@@ -32,7 +32,6 @@
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="<?php echo base_url();?>/assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
-        
 </head>
 <body>
 	<!-- begin #page-loader -->
@@ -113,10 +112,10 @@
                         <div class="col-md-12">
 			<div class="widget widget-blog" style="background-color: rgba(0,0,0,0.3);" >
                             <?php if(isset($data)) : foreach($data as $row) :  ?>
-                            <?php $idd = $row->pid;?>
+                            <?php $idd = $row->id;?>
 			                <div class="widget-blog-cover" >
                                             <ol class="breadcrumb pull-left text-white f-w-600 f-s-13 m-l-100">
-                                                <li><?php echo $row->sfirstname?> <?php echo $row->slastname?>, 8a, <?php echo $row->sgender?>,<?php $d = $row->sdob; $date = date('Y-m-d'); $dd = $date - $d; echo $dd; ?> years old</li>
+                                                <li><?php echo $row->firstname?> <?php echo $row->lastname?>, 8a, <?php echo $row->gender?>,<?php $d = $row->dob; $date = date('Y-m-d'); $dd = $date - $d; echo $dd; ?> years old</li>
                                              </ol>    
                                         </div>
                             <?php  endforeach;?>
@@ -127,10 +126,15 @@
 			                        <img src="../assets/img/user-10.jpg" alt="">
 			                    </div>
 			                    <div class="widget-blog-author-info text-inverse" style="margin-top: -1px; margin-left: 7px;">
-                                                <a href="<?php echo base_url()?>user/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Home" class="shoshials btn btn-circle btn-icon m-t-3 "><i class="fa fa-home"></i></a>
-                                                <a href="<?php echo base_url()?>assessments/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Assessments" class="shoshialsa btn btn-circle btn-icon   fa-spin m-l-25 m-t-3" ><i class="fa fa-graduation-cap"></i></a>
-                                                <a href="<?php echo base_url()?>disciplines/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Discipline" class="shoshials btn btn-circle btn-icon m-t-3 m-l-25"><i class="fa fa-legal"></i></a>
-                                              </div>
+                                           
+                                                    <a href="<?php echo base_url()?>user/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Home" class="shoshials btn  btn-icon btn-circle"><i class="fa fa-home    "></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="<?php echo base_url()?>assessments/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Assessments" class="shoshials btn  btn-icon btn-circle"><i class="fa fa-graduation-cap"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="<?php echo base_url()?>demographic/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Demographic" class="shoshialsa  btn  btn-icon btn-circle"><i class="fa fa-spin fa-globe"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="<?php echo base_url()?>discipline/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Discipline" class="shoshials btn  btn-icon btn-circle"><i class="fa fa-clock-o"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="<?php echo base_url()?>attendance/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Attendance" class="shoshials btn  btn-icon btn-circle"><i class="fa fa-legal"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="<?php echo base_url()?>contacts/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Contacts" class="shoshials btn  btn-icon btn-circle"><i class="fa fa-phone-square"></i></a>
+                                               
+                                            </div>
 			                </div>
 			            </div>
                             
@@ -138,72 +142,6 @@
                         </div>
                         <legend></legend>
                         <!-- begin row -->
-			<div class="row">
-				<!-- end col-3 -->
-                                <!-- begin col-10 -->
-                                    <div class="col-md-8">
-                                        <!-- begin panel -->
-                                        <div class="panel panel-inverse">
-                                            <div class="panel-heading">
-                                                <div class="panel-heading-btn">
-                                                    <a href="#modal-alert" data-toggle="modal" class="btn btn-labeled btn-success btn-xs">
-                                                     <i class="fa fa-plus"></i>
-                                                       Add an assessment 
-                                                    </a>
-                                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
-                                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
-                                                </div>
-                                                <h4 class="panel-title  "><strong>Assessments</strong></h4>
-                                            </div>
-                                            <div class="panel-body">
-
-                                                <table id="data-table" class="table table-condensed table-striped table-bordered display" cellspacing="0" width="100%">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>ID</th>
-                                                            <th>Subject</th>
-                                                            <th>Class</th>
-                                                            <th>Mark out of</th>
-                                                            <th>Mark</th>
-                                                            <th>Percent</th>
-                                                            <th>Weight</th>
-                                                            <th>oWeight</th>
-                                                            <th>Ass</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tfoot>
-                                                        <tr>
-                                                            <th>ID</th>
-                                                            <th>Subject</th>
-                                                            <th>Class</th>
-                                                            <th>Mark out of</th>
-                                                            <th>Mark</th>
-                                                            <th>Average</th>
-                                                            <th>Weight</th>
-                                                            <th>oWeight</th>
-                                                            <th>Ass</th>
-                                                        </tr>
-                                                    </tfoot>
-                                                </table>
-
-                                            </div>
-                                        </div>
-                                        <!-- end panel -->
-                                    </div>
-                                <!-- end col-10 -->
-                                
-				    <!-- begin col-3 -->
-				<div class="col-md-4">
-                                   <div class="widget widget-stats text-inverse " style="background: rgba(122, 130, 136, 0.2)!important;">
-						<div class="stats-icon"><i class="fa fa-apple"></i></div>
-						<div class="stats-info">
-                                                    <strong>Welcome Admin </strong><br>You have an overdue payment, so you don't currently have full access to our learning material. If you're ready to start learning again, click here to update your payment method.
-                                                </div>
-					</div>
-				</div>
-			</div>
                         <div class="modal fade" id="modal-alert">
                             <div class="modal-dialog">
                                     <div class="modal-content">
@@ -269,21 +207,7 @@
                     </div>
 			<!-- end row -->
 		<!-- end #content -->
-		<!-- begin #footer -->
-		<div id="footer" class="footer">
-                    <a class="shoshial btn btn-default btn-icon btn-circle"><i class="fa fa-twitter"></i></a>&nbsp;
-                   <a class="shoshial btn btn-default btn-icon btn-circle"><i class="fa fa-facebook-f"></i></a>&nbsp;
-                   <a class="shoshial btn btn-default btn-icon btn-circle"><i class="fa fa-google-plus"></i></a>&nbsp;
-                   <a class="shoshial btn btn-default btn-icon btn-circle"><i class="fa fa-linkedin"></i></a>&nbsp;
-                    <a class="shoshial btn btn-default btn-icon btn-circle"><i class="fa fa-youtube-play"></i></a>&nbsp;
-                    <a class="shoshial btn btn-default btn-icon btn-circle"><i class="fa fa-instagram"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a class="shoshialt f-s-13 f-w-600 " ><strong>sqoolz blog</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a class="shoshialt f-s-13 f-w-600 " ><strong>about sqoolz</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a class="shoshialt f-s-13 f-w-600 " ><strong>privacy policy</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a class="shoshialt f-s-13 f-w-600 " ><strong>terms & conditions</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <p class="shoshialt f-s-13 f-w-600  pull-right">&copy; 2016 sqoolz island, inc.</p>
-		</div>
-		<!-- end #footer -->
+		
   
 		<!-- begin scroll to top btn -->
 		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>

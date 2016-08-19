@@ -113,10 +113,10 @@
                         <div class="col-md-12">
 			<div class="widget widget-blog" style="background-color: rgba(0,0,0,0.3);" >
                             <?php if(isset($data)) : foreach($data as $row) :  ?>
-                            <?php $idd = $row->pid;?>
+                            <?php $idd = $row->id;?>
 			                <div class="widget-blog-cover" >
                                             <ol class="breadcrumb pull-left text-white f-w-600 f-s-13 m-l-100">
-                                                <li><?php echo $row->sfirstname?> <?php echo $row->slastname?>, 8a, <?php echo $row->sgender?>,<?php $d = $row->sdob; $date = date('Y-m-d'); $dd = $date - $d; echo $dd; ?> years old</li>
+                                                <li><?php echo $row->firstname?> <?php echo $row->lastname?>, 8a, <?php echo $row->gender?>,<?php $d = $row->dob; $date = date('Y-m-d'); $dd = $date - $d; echo $dd; ?> years old</li>
                                              </ol>    
                                         </div>
                             <?php  endforeach;?>
@@ -128,7 +128,8 @@
 			                    </div>
 			                    <div class="widget-blog-author-info text-inverse" style="margin-top: -1px; margin-left: 7px;">
                                                 <a href="<?php echo base_url()?>user/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Home" class="shoshials btn btn-circle btn-icon m-t-3 "><i class="fa fa-home"></i></a>
-                                                <a href="<?php echo base_url()?>assessments/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Assessments" class="shoshialsa btn btn-circle btn-icon   fa-spin m-l-25 m-t-3" ><i class="fa fa-graduation-cap"></i></a>
+                                                <a href="<?php echo base_url()?>assessments/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Assessments" class="shoshials btn btn-circle btn-icon  m-l-25 m-t-3" ><i class="fa fa-graduation-cap"></i></a>
+                                                <a href="<?php echo base_url()?>attendances/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Attendance" class="shoshialsa btn btn-circle btn-icon   fa-spin m-t-3 m-l-25" ><i class="fa fa-clock-o"></i></a>
                                                 <a href="<?php echo base_url()?>disciplines/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Discipline" class="shoshials btn btn-circle btn-icon m-t-3 m-l-25"><i class="fa fa-legal"></i></a>
                                               </div>
 			                </div>
@@ -141,7 +142,7 @@
 			<div class="row">
 				<!-- end col-3 -->
                                 <!-- begin col-10 -->
-                                    <div class="col-md-8">
+                                    <div class="col-md-10">
                                         <!-- begin panel -->
                                         <div class="panel panel-inverse">
                                             <div class="panel-heading">
@@ -195,7 +196,7 @@
                                 <!-- end col-10 -->
                                 
 				    <!-- begin col-3 -->
-				<div class="col-md-4">
+				<div class="col-md-2">
                                    <div class="widget widget-stats text-inverse " style="background: rgba(122, 130, 136, 0.2)!important;">
 						<div class="stats-icon"><i class="fa fa-apple"></i></div>
 						<div class="stats-info">

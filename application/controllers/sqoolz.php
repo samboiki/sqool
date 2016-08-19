@@ -462,7 +462,7 @@ class Sqoolz extends CI_Controller {
       
       $id = $this->uri->segment(2);
       $users['data'] = $this->crud->get_userbyid($id);
-      
+    //  var_dump($users);
       
       $this->load->view('user',$users);
     }
@@ -484,8 +484,8 @@ class Sqoolz extends CI_Controller {
       
         foreach($usersarr as $vals){
          $id = $vals->id;
-         $class = $vals->class;
          $subject = $vals->subject;
+         $class = $vals->class;
          $marktotal = $vals->marktotal;
          $mark = $vals->mark;
          $percentage = $vals->percentage;
@@ -495,7 +495,131 @@ class Sqoolz extends CI_Controller {
          
          
          $values = array(
-          $id,$class,$subject,$marktotal,$mark,$percentage,$average,$wht,$assname
+          $id,$subject,$assname,$marktotal,$mark,$percentage,$average,$wht,$class
+         );
+         
+         $userspecs[] = $values;
+         $values = [];
+         }
+         
+         
+        $data = json_encode(array('aaData' =>$userspecs));
+        
+        $file = "assets". DIRECTORY_SEPARATOR .  "smarks.json";
+        write_file($file, $data);
+        
+    }
+    
+    public function attendances(){
+      $this->load->helper('form');
+      $this->load->helper('url');
+      $this->load->model('crud');
+      
+      $id = $this->uri->segment(2);
+      $users['data'] = $this->crud->get_userbyid($id);
+      $users['class'] = $this->crud->get_cls();
+      
+      $this->load->view('attendances',$users);
+      $ids = $this->uri->segment(2);
+     
+      $marks['data'] = $this->crud->get_studentmarks($ids);
+      $usersarr = $marks['data'];
+      
+        foreach($usersarr as $vals){
+         $id = $vals->id;
+         $subject = $vals->subject;
+         $class = $vals->class;
+         $marktotal = $vals->marktotal;
+         $mark = $vals->mark;
+         $percentage = $vals->percentage;
+         $average = $vals->AVG;
+         $wht = $vals->markweight;
+         $assname = $vals->assname;
+         
+         
+         $values = array(
+          $id,$subject,$assname,$marktotal,$mark,$percentage,$average,$wht,$class
+         );
+         
+         $userspecs[] = $values;
+         $values = [];
+         }
+         
+         
+        $data = json_encode(array('aaData' =>$userspecs));
+        
+        $file = "assets". DIRECTORY_SEPARATOR .  "smarks.json";
+        write_file($file, $data);
+        
+    }
+    
+    public function disciplines(){
+      $this->load->helper('form');
+      $this->load->helper('url');
+      $this->load->model('crud');
+      
+      $id = $this->uri->segment(2);
+      $users['data'] = $this->crud->get_userbyid($id);
+      $users['class'] = $this->crud->get_cls();
+      
+      $this->load->view('disciplines',$users);
+      $ids = $this->uri->segment(2);
+     
+      $ds['data'] = $this->crud->get_studentd($ids);
+      $usersarr = $ds['data'];
+      
+        foreach($usersarr as $vals){
+         $id = $vals->id;
+         $offence = $vals->offence;
+         $weight = $vals->weight;
+         $class = $vals->class;
+         $teacher= $vals->teacher;
+         $date = $vals->date;
+         
+         $values = array(
+          $id,$class ,$teacher,$offence,$date,$weight,$id
+         );
+         
+         $userspecs[] = $values;
+         $values = [];
+         }
+         
+         
+        $data = json_encode(array('aaData' =>$userspecs));
+        
+        $file = "assets". DIRECTORY_SEPARATOR .  "dviews.json";
+        write_file($file, $data);
+        
+    }
+    public function demographic(){
+      $this->load->helper('form');
+      $this->load->helper('url');
+      $this->load->model('crud');
+      
+      $id = $this->uri->segment(2);
+      $users['data'] = $this->crud->get_userbyid($id);
+      $users['class'] = $this->crud->get_cls();
+      
+      $this->load->view('demographic',$users);
+      $ids = $this->uri->segment(2);
+     
+      $marks['data'] = $this->crud->get_studentmarks($ids);
+      $usersarr = $marks['data'];
+      
+        foreach($usersarr as $vals){
+         $id = $vals->id;
+         $subject = $vals->subject;
+         $class = $vals->class;
+         $marktotal = $vals->marktotal;
+         $mark = $vals->mark;
+         $percentage = $vals->percentage;
+         $average = $vals->AVG;
+         $wht = $vals->markweight;
+         $assname = $vals->assname;
+         
+         
+         $values = array(
+          $id,$subject,$assname,$marktotal,$mark,$percentage,$average,$wht,$class
          );
          
          $userspecs[] = $values;
@@ -772,6 +896,13 @@ class Sqoolz extends CI_Controller {
         $id = $this->uri->segment(2);
         $this->crud->delg($id);
         redirect('settings');
+    }
+    public function deld(){
+        $id = $this->uri->segment(2);
+        echo $id;
+        $rowarray = $this->crud->deld($id);
+        $role = $rowarray['role'];
+       redirect('disciplines/'.$role);
     }
     public function settings(){
       $this->load->helper('form');

@@ -128,8 +128,8 @@
 			                    </div>
 			                    <div class="widget-blog-author-info text-inverse" style="margin-top: -1px; margin-left: 7px;">
                                                 <a href="<?php echo base_url()?>user/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Home" class="shoshials btn btn-circle btn-icon m-t-3 "><i class="fa fa-home"></i></a>
-                                                <a href="<?php echo base_url()?>assessments/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Assessments" class="shoshialsa btn btn-circle btn-icon   fa-spin m-l-25 m-t-3" ><i class="fa fa-graduation-cap"></i></a>
-                                                <a href="<?php echo base_url()?>disciplines/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Discipline" class="shoshials btn btn-circle btn-icon m-t-3 m-l-25"><i class="fa fa-legal"></i></a>
+                                                <a href="<?php echo base_url()?>assessments/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Assessments" class="shoshials btn btn-circle btn-icon m-l-25 m-t-3" ><i class="fa fa-graduation-cap"></i></a>
+                                                <a href="<?php echo base_url()?>disciplines/<?php echo $idd;?>" data-toggle="tooltip" data-placement="bottom" title="Discipline" class="shoshialsa btn btn-circle btn-icon   fa-spin m-t-3 m-l-25"><i class="fa fa-legal"></i></a>
                                               </div>
 			                </div>
 			            </div>
@@ -141,7 +141,7 @@
 			<div class="row">
 				<!-- end col-3 -->
                                 <!-- begin col-10 -->
-                                    <div class="col-md-8">
+                                    <div class="col-md-10">
                                         <!-- begin panel -->
                                         <div class="panel panel-inverse">
                                             <div class="panel-heading">
@@ -155,7 +155,7 @@
                                                     <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                                                     <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                                                 </div>
-                                                <h4 class="panel-title  "><strong>Assessments</strong></h4>
+                                                <h4 class="panel-title  "><strong>Discipline</strong></h4>
                                             </div>
                                             <div class="panel-body">
 
@@ -163,27 +163,23 @@
                                                     <thead>
                                                         <tr>
                                                             <th>ID</th>
-                                                            <th>Subject</th>
                                                             <th>Class</th>
-                                                            <th>Mark out of</th>
-                                                            <th>Mark</th>
-                                                            <th>Percent</th>
+                                                            <th>Teacher</th>
+                                                            <th>Offence</th>
+                                                            <th>Recorded</th>
                                                             <th>Weight</th>
-                                                            <th>oWeight</th>
-                                                            <th>Ass</th>
+                                                            <th>Control</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
                                                         <tr>
                                                             <th>ID</th>
-                                                            <th>Subject</th>
                                                             <th>Class</th>
-                                                            <th>Mark out of</th>
-                                                            <th>Mark</th>
-                                                            <th>Average</th>
+                                                            <th>Teacher</th>
+                                                            <th>Offence</th>
+                                                            <th>Recorded</th>
                                                             <th>Weight</th>
-                                                            <th>oWeight</th>
-                                                            <th>Ass</th>
+                                                            <th>Control</th>
                                                         </tr>
                                                     </tfoot>
                                                 </table>
@@ -195,7 +191,7 @@
                                 <!-- end col-10 -->
                                 
 				    <!-- begin col-3 -->
-				<div class="col-md-4">
+				<div class="col-md-2">
                                    <div class="widget widget-stats text-inverse " style="background: rgba(122, 130, 136, 0.2)!important;">
 						<div class="stats-icon"><i class="fa fa-apple"></i></div>
 						<div class="stats-info">
@@ -313,7 +309,7 @@
 	<script src="<?php echo base_url();?>/assets/plugins/DataTables/extensions/Scroller/js/dataTables.scroller.min.js"></script>
 	<script src="<?php echo base_url();?>/assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
 	
-        <script src="<?php echo base_url();?>/assets/js/table-smarks.js"></script>
+        <script src="<?php echo base_url();?>/assets/js/table-sdisc.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	<script>
         $('.count').each(function () {
